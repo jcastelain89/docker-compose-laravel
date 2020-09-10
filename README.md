@@ -8,7 +8,12 @@ To get started, make sure you have [Docker installed](https://docs.docker.com/do
 
 Next, navigate in your terminal to the directory you cloned this, and spin up the containers for the web server by running `docker-compose up -d --build site`.
 
-After that completes, follow the steps from the [src/README.md](src/README.md) file to get your Laravel project added in (or create a new blank one).
+## This is where your Laravel app goes
+
+To get started, delete this file and then do one of the following:
+
+- Clone your project or copy all of the files directly into this `src` directory.
+- Install a brand new Laravel project by running `docker-compose run --rm composer create-project laravel/laravel .` in your terminal.
 
 Bringing up the Docker Compose network with `site` instead of just using `up`, ensures that only our site's containers are brought up at the start, instead of all of the command containers as well. The following are built for our web server, with their exposed ports detailed:
 
@@ -17,9 +22,11 @@ Bringing up the Docker Compose network with `site` instead of just using `up`, e
 - **php** - `:9000`
 
 Three additional containers are included that handle Composer, NPM, and Artisan commands *without* having to have these platforms installed on your local computer. Use the following command examples from your project root, modifying them to fit your particular use case.
-
-- `docker-compose run --rm composer update`
-- `docker-compose run --rm npm run dev`
+- `docker-compose run --rm artisan key:generate`
+- `docker-compose run --rm composer install`
+- `docker-compose run --rm composer require laravel-frontend-presets/tailwindcss --dev`
+- `docker-compose run --rm artisan ui tailwindcss --auth`
+- `docker-compose run --rm npm install && npm run dev`
 - `docker-compose run --rm artisan migrate`
 
 ## Persistent MySQL Storage

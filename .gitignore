@@ -2,6 +2,7 @@
 *.log
 *.sql
 *.sqlite
+mysql/*
 # ignore compiled files
 *.com
 *.class
