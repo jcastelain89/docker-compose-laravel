@@ -29,10 +29,10 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: forge
-      MYSQL_USER: forge
-      MYSQL_PASSWORD: forge
-      MYSQL_ROOT_PASSWORD: forge
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     networks:
